@@ -30,8 +30,8 @@ class ServiceController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            // 'image' => 'required',
-            // 'status' => 'required',
+            'image' => 'required',
+            'status' => 'required',
             'short_description' => 'required|max:255'
         ]);
 

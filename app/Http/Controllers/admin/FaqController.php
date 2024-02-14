@@ -5,16 +5,24 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use Illuminate\Http\Request;
+Use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class FaqController extends Controller
 {
     public function index(Request $request)
     {
+        // DB::connection()->enableQueryLog();
+
+
+        DB::connection()->enableQueryLog();
         $data = Faq::orderBy('created_at', 'DESC');
         if (!empty($request->search)) {
             $data = Faq::where('name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'DESC');
         }
         $data = $data->paginate(5);
+        // $querieslog = DB::getQueryLog();
+        // dd($querieslog);
         return view('admin.faq.list', compact('data'));
     }
 

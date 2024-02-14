@@ -89,15 +89,6 @@
                                                 <td>
                                                     <a href="{{ route('blog.edit', $blog->id) }}"
                                                         class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
-                                                    <form action="{{ route('blog.delete', $blog->id) }}" method="POST"
-                                                        style="display: contents;">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit"
-                                                            onclick="return confirmBox({{ $blog->id }})"
-                                                            class="btn btn-sm btn-danger"><i
-                                                                class="fas fa-trash"></i></button>
-                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

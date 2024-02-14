@@ -56,7 +56,9 @@
                                         <label for="Image">Image</label>
                                         <input type="file" style="padding: 3px;" name="image" id="image"
                                             class="form-control">
-
+                                        @error('image')
+                                            <p class="text-danger"><b>{{ $message }}</b></p>
+                                        @enderror
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
